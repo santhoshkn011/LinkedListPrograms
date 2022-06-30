@@ -35,15 +35,27 @@ public class Operations {
 
     //pop method
     public static void pop() {
-        LinkedList linkedList = new LinkedList();
-        Node firstNode = linkedList.add(70);
-        Node secondNode = linkedList.add(30);
-        Node newNode = linkedList.add(56);
+        LinkedList l4 = new LinkedList();
+        Node firstNode = l4.add(70);
+        Node secondNode = l4.add(30);
+        Node newNode = l4.add(56);
         System.out.println("Before");
-        linkedList.print();
-        linkedList.pop();
+        l4.print();
+        l4.pop();
         System.out.println();
         System.out.println("After");
-        linkedList.print();
+        l4.print();
+    }
+    public static void popLast(){
+        LinkedList l5=new LinkedList();
+        Node firstNode= l5.add(70);
+        Node secondNode= l5.add(30);
+        Node newNode=l5.add(56);
+        System.out.println("Before");
+        l5.print();
+        System.out.println(         );
+        l5.popLast();
+        System.out.println("After");
+        l5.print();
     }
 }

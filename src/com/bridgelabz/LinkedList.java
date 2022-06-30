@@ -1,5 +1,5 @@
 /*
-Ability to delete the first element in the LinkedList of sequence 56->30->70
+Ability to delete the last element in the LinkedList of sequence 56->30->70
  */
 package com.bridgelabz;
 import java.util.Scanner;
@@ -32,20 +32,39 @@ public class LinkedList {
             tail = newNode;
         }
     }
+
     //method for inserting the data in between
-    public void insertInBetween(Node previousNode ,Node newNode){
+    public void insertInBetween(Node previousNode, Node newNode) {
         Node tempNode = previousNode.next;
         previousNode.next = newNode;
         newNode.next = tempNode;
     }
+
     //pop method
-    public void pop(){
-        if(this.head==null){
+    public void pop() {
+        if (this.head == null) {
 
         }
-        Node temp =head;
+        Node temp = head;
         head = temp.next;
-        temp =null;
+        temp = null;
+    }
+
+    //PopLast
+    public void popLast() {
+        if (head == null)
+            System.out.println("No elements to delete..");
+        else if (head.next == null)
+            head = null;
+        else {
+            Node temp = head;
+
+            while (temp.next.next != null) {
+                temp = temp.next;
+            }
+
+            temp.next = null;
+        }
     }
     //print method
     public void print() {
@@ -59,11 +78,12 @@ public class LinkedList {
             }
         }
     }
-    //main method runs
-    public static void main (String[] args) {
+
+    //main method
+    public static void main(String[] args) {
         System.out.println("Welcome to the Linked List Program.");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the options:\n1. Add the data.\n2. Append the data.\n3. Insert in between\n4. Delete the data at first position.");
+        System.out.println("Enter the options:\n1. Add the data.\n2. Append the data.\n3. Insert in between\n4. Delete the data at first position.\n5. Delete at last position.");
         switch (scanner.nextInt()) {
 
             case 1:
@@ -77,6 +97,9 @@ public class LinkedList {
                 break;
             case 4:
                 Operations.pop();
+                break;
+            case 5:
+                Operations.popLast();
                 break;
             default:
                 System.out.println("Invalid Input");
