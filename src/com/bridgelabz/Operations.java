@@ -56,12 +56,23 @@ public class Operations {
         l5.print();
     }
     public static void search(){
-        LinkedList linkedList=new LinkedList();
-        Node firstNode = linkedList.add(70);
-        Node secondNode = linkedList.add(30);
-        Node newNode=linkedList.add(56);
-        linkedList.search();
+        LinkedList l6=new LinkedList();
+        Node firstNode = l6.add(70);
+        Node secondNode = l6.add(30);
+        Node newNode=l6.add(56);
+        l6.search();
         System.out.println("The linked list is: ");
-        linkedList.print();
+        l6.print();
+    }
+    public static void insertPosition() {
+        LinkedList l7=new LinkedList();
+        Node firstNode= l7.add(70);
+        Node secondNode= l7.add(30);
+        Node newNode=l7.add(56);
+        System.out.println("Before");
+        l7.print();
+        l7.insertAtPosition();
+        System.out.println("After inserting");
+        l7.print();
     }
 }
