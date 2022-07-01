@@ -1,5 +1,5 @@
 /*
-Ability to delete the last element in the LinkedList of sequence 56->30->70
+Ability to search LinkedList to find Node with value 30
  */
 package com.bridgelabz;
 import java.util.Scanner;
@@ -32,14 +32,12 @@ public class LinkedList {
             tail = newNode;
         }
     }
-
     //method for inserting the data in between
     public void insertInBetween(Node previousNode, Node newNode) {
         Node tempNode = previousNode.next;
         previousNode.next = newNode;
         newNode.next = tempNode;
     }
-
     //pop method
     public void pop() {
         if (this.head == null) {
@@ -49,7 +47,6 @@ public class LinkedList {
         head = temp.next;
         temp = null;
     }
-
     //PopLast
     public void popLast() {
         if (head == null)
@@ -66,6 +63,28 @@ public class LinkedList {
             temp.next = null;
         }
     }
+    public void search() {
+        System.out.println("Enter the key you want to search:");
+        Scanner sc = new Scanner(System.in);
+        int data = sc.nextInt();
+        if(head.key == data)
+            System.out.println(data + " is Found");
+        else {
+            Node n = head;
+            boolean searching = false;
+            while(n!=null) {
+                if(n.key == data) {
+                    searching = true;
+                    break;
+                }
+                n = n.next;
+            }
+            if(searching == true)
+                System.out.println(data+ " is found in this linked list");
+            else
+                System.out.println(data+" is not found.");
+        }
+    }
     //print method
     public void print() {
         if (head == null) {
@@ -78,12 +97,12 @@ public class LinkedList {
             }
         }
     }
-
     //main method
     public static void main(String[] args) {
         System.out.println("Welcome to the Linked List Program.");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the options:\n1. Add the data.\n2. Append the data.\n3. Insert in between\n4. Delete the data at first position.\n5. Delete at last position.");
+        System.out.println("Enter the options:\n1. Add the data.\n2. Append the data.\n3. Insert in between\n4. " +
+                "Delete the data at first position.\n5. Delete at last position.\n6. Find the node");
         switch (scanner.nextInt()) {
 
             case 1:
@@ -100,6 +119,9 @@ public class LinkedList {
                 break;
             case 5:
                 Operations.popLast();
+                break;
+            case 6:
+                Operations.search();
                 break;
             default:
                 System.out.println("Invalid Input");

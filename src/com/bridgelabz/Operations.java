@@ -9,7 +9,6 @@ public class Operations {
         l1.add(56);
         l1.print();
     }
-
     // Created a method to append data
     public static void addDataAppend() {
         LinkedList l2 = new LinkedList();
@@ -18,7 +17,6 @@ public class Operations {
         l2.append(70);
         l2.print();
     }
-
     //method to insert the data in between
     public static void insertInBetween() {
         LinkedList l3 = new LinkedList();
@@ -32,7 +30,6 @@ public class Operations {
         System.out.println("After");
         l3.print();
     }
-
     //pop method
     public static void pop() {
         LinkedList l4 = new LinkedList();
@@ -53,9 +50,18 @@ public class Operations {
         Node newNode=l5.add(56);
         System.out.println("Before");
         l5.print();
-        System.out.println(         );
+        System.out.println();
         l5.popLast();
         System.out.println("After");
         l5.print();
+    }
+    public static void search(){
+        LinkedList linkedList=new LinkedList();
+        Node firstNode = linkedList.add(70);
+        Node secondNode = linkedList.add(30);
+        Node newNode=linkedList.add(56);
+        linkedList.search();
+        System.out.println("The linked list is: ");
+        linkedList.print();
     }
 }
