@@ -1,6 +1,3 @@
-/*
-Ability to delete 40 from the Linked List sequence of 56->30->40->70 and show the size of LinkedList is 3
- */
 package com.bridgelabz;
 import java.util.Scanner;
 
@@ -159,7 +156,7 @@ public class LinkedList {
             Scanner sc = new Scanner(System.in);
             System.out.println("Enter the options:\n1. Add the data.\n2. Append the data.\n3. Insert in between\n4. " +
                     "Delete the data at first position.\n5. Delete at last position.\n6. Find the node\n7. Inserting Node at particular position." +
-                    "\n8. Delete at Index Position.");
+                    "\n8. Delete at Index Position.\n9. Sorting the list");
             choose = sc.nextInt();
             switch (choose) {
 
@@ -187,10 +184,13 @@ public class LinkedList {
                 case 8:
                     Operations.deleteAtPosition();
                     break;
+                case 9:
+                    SortedLinkedList.sort();
+                    break;
                 default:
                     System.out.println("Invalid Input");
                     break;
             }
-        } while (choose != 8);
+        } while (choose != 9);
     }
 }
