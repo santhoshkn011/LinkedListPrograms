@@ -1,5 +1,5 @@
 /*
-Ability to insert 40 after 30 to the Linked List sequence of 56->30->70
+Ability to delete 40 from the Linked List sequence of 56->30->40->70 and show the size of LinkedList is 3
  */
 package com.bridgelabz;
 import java.util.Scanner;
@@ -90,13 +90,15 @@ public class LinkedList {
         return new Node(data);
     }
     public void insertAtPosition() {
-        System.out.println("\nEnter the key you want to enter after 30:");
         Scanner sc = new Scanner(System.in);
+        System.out.println("\nEnter the key where you want to insert after:");
+        int newIndex = sc.nextInt();
+        System.out.println("\nEnter the key you want to insert:");
         int newKey = sc.nextInt();
         Node insertNode = new Node(newKey);
         Node temp = head;
         while (temp != null) {
-            if (temp.key == 30) {
+            if (temp.key == newIndex) {
                 Node afterInsert = temp.next;
                 temp.next = insertNode;
                 temp.next.next = afterInsert;
@@ -104,6 +106,38 @@ public class LinkedList {
             }
             temp = temp.next;
         }
+    }
+    public void deleteAtPosition() {
+        System.out.println("\nEnter the key you want to delete:");
+        Scanner sc = new Scanner(System.in);
+        int delKey = sc.nextInt();
+        Node temp = head;
+        if (head.key == delKey) {
+            pop();
+        } else if (tail.key == delKey) {
+            popLast();
+        } else {
+            while (temp != null) {
+                if (temp.next.key == delKey) {
+                    temp.next = temp.next.next;
+                    break;
+                }
+                temp = temp.next;
+            }
+        }
+    }
+    //to display the size method
+    public int size() {
+        int count = 0; // No data 1 element
+
+        Node temp = head;
+
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+        }
+        System.out.println("Size of Array is :"+count);
+        return count;
     }
     //print method
     public void print() {
@@ -120,36 +154,43 @@ public class LinkedList {
     //main method
     public static void main(String[] args) {
         System.out.println("Welcome to the Linked List Program.");
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the options:\n1. Add the data.\n2. Append the data.\n3. Insert in between\n4. " +
-                "Delete the data at first position.\n5. Delete at last position.\n6. Find the node\n7. Inserting Node at particular position." +
-                "\n");
-        switch (scanner.nextInt()) {
+        int choose;
+        do {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the options:\n1. Add the data.\n2. Append the data.\n3. Insert in between\n4. " +
+                    "Delete the data at first position.\n5. Delete at last position.\n6. Find the node\n7. Inserting Node at particular position." +
+                    "\n8. Delete at Index Position.");
+            choose = sc.nextInt();
+            switch (choose) {
 
-            case 1:
-                Operations.addData();
-                break;
-            case 2:
-                Operations.addDataAppend();
-                break;
-            case 3:
-                Operations.insertInBetween();
-                break;
-            case 4:
-                Operations.pop();
-                break;
-            case 5:
-                Operations.popLast();
-                break;
-            case 6:
-                Operations.search();
-                break;
-            case 7:
-                Operations.insertPosition();
-                break;
-            default:
-                System.out.println("Invalid Input");
-                break;
-        }
+                case 1:
+                    Operations.addData();
+                    break;
+                case 2:
+                    Operations.addDataAppend();
+                    break;
+                case 3:
+                    Operations.insertInBetween();
+                    break;
+                case 4:
+                    Operations.pop();
+                    break;
+                case 5:
+                    Operations.popLast();
+                    break;
+                case 6:
+                    Operations.search();
+                    break;
+                case 7:
+                    Operations.insertPosition();
+                    break;
+                case 8:
+                    Operations.deleteAtPosition();
+                    break;
+                default:
+                    System.out.println("Invalid Input");
+                    break;
+            }
+        } while (choose != 8);
     }
 }

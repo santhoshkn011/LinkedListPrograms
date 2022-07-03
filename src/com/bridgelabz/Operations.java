@@ -74,5 +74,25 @@ public class Operations {
         l7.insertAtPosition();
         System.out.println("After inserting");
         l7.print();
+        System.out.println("\n");
+    }
+    public static void deleteAtPosition(){
+        LinkedList l8 = new LinkedList();
+        Node firstNode = l8.add(70);
+        Node secondNode = l8.add(30);
+        Node newNode = l8.add(56);
+        System.out.println("Before");
+        l8.print();
+        System.out.print("\n");
+        l8.insertAtPosition();
+        System.out.println("After");
+        l8.print();
+        System.out.println(" ");
+        l8.size();
+        l8.deleteAtPosition();
+        System.out.println("After Deleting The Value");
+        l8.print();
+        System.out.println(" ");
+        l8.size();
     }
 }
